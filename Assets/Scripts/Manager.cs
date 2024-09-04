@@ -9,34 +9,35 @@ public class Manager : MonoBehaviour
 
     public Player player;
 
-    [Header("캐릭터 닉네임")]
-    [SerializeField] GameObject pnlInputName;
-    [SerializeField] InputField ifName;
+    [Header("Character Name")]
+    [SerializeField] GameObject _pnlInputName;
+    [SerializeField] InputField _ifName;
 
-    void Awake()
-    {
+    [Header("Inventory")]
+    public FeatureInventory inventory;
+
+    void Awake() {
         if (!instance)
             instance = this;
     }
 
     void Start()
     {
-        pnlInputName.SetActive(true);
+        player.enabled = false;
+        _pnlInputName.SetActive(true);
     }
 
     public void OnClickBtnConfirmName(){
-        if(ifName.text.Length == 0f)
-        {
-            Debug.Log("최소 한글자는 입력해주세요.");
+        if(_ifName.text.Length == 0f) {
+            Debug.Log("Name must be more than 1 character.");
             return;
         }
-
-        pnlInputName.SetActive(false);
         StartGame();
     }
 
     void StartGame(){
         player.enabled = true;
-        player.SetName(ifName.text);
+        _pnlInputName.SetActive(false);
+        player.SetName(_ifName.text);
     }
 }
