@@ -16,4 +16,9 @@ namespace DataDefinition {
     public class Weapon : Item {
         public int power;
     }
+
+    [Serializable] 
+    public class Armor : Item{
+        public int defense;
+    }
 }

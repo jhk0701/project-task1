@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     [SerializeField] string _name;
     [SerializeField] Text txtName;
-
     [SerializeField] Animator _anim;
 
     float _inputV;

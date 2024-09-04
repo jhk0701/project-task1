@@ -17,7 +17,9 @@ public class Npc : MonoBehaviour, IInteractable
 
     void Update()
     {
-        if(goGuide.activeInHierarchy && Input.GetKeyUp(keyToInteract))
+        if (goGuide && 
+            goGuide.activeInHierarchy && 
+            Input.GetKeyUp(keyToInteract))
             Interact();
     }
     
@@ -27,16 +29,21 @@ public class Npc : MonoBehaviour, IInteractable
         _anim.SetTrigger("Change");
     }
 
-    public void Interact(){
-        Debug.Log("Interact with Player");
+
+
+    public virtual void Interact(){
     }
 
     public void ActivateKey(){
+        if(keyToInteract == KeyCode.None) return;
         goGuide.SetActive(true);
     }
     public void DeactivateKey(){
+        if(keyToInteract == KeyCode.None) return;
         goGuide.SetActive(false);
     }
+
+
 
     void OnTriggerEnter(Collider other)
     {

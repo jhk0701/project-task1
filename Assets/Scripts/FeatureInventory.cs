@@ -7,8 +7,8 @@ using DataDefinition;
 public class FeatureInventory : MonoBehaviour
 {
     [SerializeField] GameObject _pnlInventory;
+    [SerializeField] List<Item> items;
     
-
     public void OpenInventory(){
         _pnlInventory.SetActive(true);
         SetData();
