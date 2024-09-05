@@ -9,7 +9,7 @@ public class FeatureInventory : MonoBehaviour
     [SerializeField] GameObject _pnlInventory;
 
     [Space(10f)]
-    public int count;
+    public int count = 35;
     // position - item id
     Dictionary<int, int> _ownedWeapons = new Dictionary<int, int>();
     [SerializeField] GameObject _prefWeapon;
@@ -27,6 +27,7 @@ public class FeatureInventory : MonoBehaviour
         
         // test : 0 위치에 id 1 아이템
         _ownedWeapons[0] = 1;
+        _ownedWeapons[1] = 2;
     }
     
     public void OpenInventory(){
@@ -72,15 +73,14 @@ public class FeatureInventory : MonoBehaviour
         _weaponInsts.Clear();
     }
     
+    public bool IsEditable(int newPos){
+        return _ownedWeapons[newPos] == 0;
+    }
     public void Edit(int curPos, int newPos, int id){
-        // Debug.Log($"Edit Data id : {id} move from {curPos} to {newPos}");
         _ownedWeapons[curPos] = 0;
         _ownedWeapons[newPos] = id;
     }
 
-    /// <summary>
-    /// Migration from another container. ex) trade.
-    /// </summary>
     public void Migrate(){
 
     }

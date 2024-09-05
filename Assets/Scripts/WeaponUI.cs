@@ -28,7 +28,6 @@ public class WeaponUI :
         curPosition = pos;
     }
     
-
     public void OnPointerEnter(PointerEventData eventData){
         string info = string.Format("Power : {0}\nPrice : {1}", data.power, data.price);
         Manager.instance.cursor.ActivateHover(_img.sprite, data.name, info);

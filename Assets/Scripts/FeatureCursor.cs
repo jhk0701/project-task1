@@ -14,6 +14,7 @@ public class FeatureCursor : MonoBehaviour
     [SerializeField] Text _txtHoverInfo;
 
     [Header("Drag")]
+    bool _isDragging;
     [SerializeField] WeaponUI _weaponUI;
     [SerializeField] GameObject _goDrag;
     [SerializeField] Image _imgDrag;
@@ -26,6 +27,7 @@ public class FeatureCursor : MonoBehaviour
     }
 
     public void ActivateHover(Sprite sprite, string title, string info){
+        if(_isDragging) return;
         _goHover.SetActive(true);
         _imgHover.sprite = sprite;
         _txtHoverTitle.text = title;
@@ -41,11 +43,13 @@ public class FeatureCursor : MonoBehaviour
 
         _weaponUI = weapon;
         _imgDrag.sprite = sprite;
+        _isDragging = true;
     }
 
     public void DeactivateDrag(){
         _goDrag.SetActive(false);
         _weaponUI = null;
+        _isDragging = false;
     }
 
     public WeaponUI GetDraggedWeapon(){

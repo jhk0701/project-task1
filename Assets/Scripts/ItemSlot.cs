@@ -14,6 +14,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         int newPos = transform.GetSiblingIndex();
         if(_tfTarget.gameObject.Equals(w.parent.gameObject)){
             // 인벤토리 내에서 이동
+            if(!Manager.instance.inventory.IsEditable(newPos)) return;
+
             // 물리적 이동
             w.transform.localPosition = transform.localPosition;
             // 데이터 이동
