@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
 
     float _inputV;
     float _inputH;
-     [SerializeField]float _inputMouseX;
-     [SerializeField]float _inputMouseY;
+    float _inputMouseX;
+    float _inputMouseY;
     bool _inputIsRun;
 
     void Update() {
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
         _anim.SetFloat("Vertical", _inputV);
 
         _inputH = Input.GetAxis("Horizontal");
+        _anim.SetFloat("Horizontal", _inputH);
 
         _inputIsRun = Input.GetKey(KeyCode.LeftShift);
         if(_anim.GetBool("IsRun") != _inputIsRun)
@@ -27,7 +28,6 @@ public class Player : MonoBehaviour
 
         _inputMouseX = Input.GetAxis("Mouse X");
         _inputMouseY = Input.GetAxis("Mouse Y");
-
         transform.Rotate(Vector3.up * _inputMouseX);
     }
 
