@@ -9,6 +9,7 @@ public class FeatureInventory : MonoBehaviour
     [SerializeField] GameObject _pnlInventory;
 
     [Space(10f)]
+    public int count;
     // position - item id
     Dictionary<int, int> _ownedWeapons = new Dictionary<int, int>();
     [SerializeField] GameObject _prefWeapon;
@@ -20,6 +21,10 @@ public class FeatureInventory : MonoBehaviour
 
     void Start()
     {
+        // init
+        for (int i = 0; i < count; i++)
+            _ownedWeapons.Add(i, 0);
+        
         // test : 0 위치에 id 1 아이템
         _ownedWeapons[0] = 1;
     }
@@ -48,7 +53,7 @@ public class FeatureInventory : MonoBehaviour
                 inst.transform.localPosition = _tfBackground.GetChild(i).transform.localPosition;
                 
                 WeaponUI ui = inst.GetComponent<WeaponUI>();
-                ui.Init(_ownedWeapons[i], _tfContainer);
+                ui.Init(_ownedWeapons[i], i, _tfContainer);
 
                 _weaponInsts.Add(ui);
             }
@@ -67,11 +72,16 @@ public class FeatureInventory : MonoBehaviour
         _weaponInsts.Clear();
     }
     
-    public void Move(){
-
+    public void Edit(int curPos, int newPos, int id){
+        // Debug.Log($"Edit Data id : {id} move from {curPos} to {newPos}");
+        _ownedWeapons[curPos] = 0;
+        _ownedWeapons[newPos] = id;
     }
 
+    /// <summary>
+    /// Migration from another container. ex) trade.
+    /// </summary>
     public void Migrate(){
-        
+
     }
 }

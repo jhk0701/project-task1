@@ -15,24 +15,23 @@ public class WeaponUI :
     IBeginDragHandler, 
     IEndDragHandler
 {
-    [SerializeField] Weapon _data;
-    [SerializeField] Transform _parent;
+    public Weapon data;
+    public int curPosition;
+    public Transform parent;
     [SerializeField] Image _img;
     
-    public void Init(int id, Transform parent){ 
-        _data = Manager.instance.dataItem.GetWeapon(id);
-        _img.sprite = _data.sprite;
+    public void Init(int id, int pos, Transform p){ 
+        data = Manager.instance.dataItem.GetWeapon(id);
+        _img.sprite = data.sprite;
 
-        _parent = parent;
+        parent = p;
+        curPosition = pos;
     }
     
-    public Transform GetParent(){
-        return _parent;
-    }
 
     public void OnPointerEnter(PointerEventData eventData){
-        string info = string.Format("Power : {0}\nPrice : {1}", _data.power, _data.price);
-        Manager.instance.cursor.ActivateHover(_img.sprite, _data.name, info);
+        string info = string.Format("Power : {0}\nPrice : {1}", data.power, data.price);
+        Manager.instance.cursor.ActivateHover(_img.sprite, data.name, info);
     }
 
     public void OnPointerExit(PointerEventData eventData){
