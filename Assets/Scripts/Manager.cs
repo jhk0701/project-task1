@@ -13,8 +13,12 @@ public class Manager : MonoBehaviour
     [SerializeField] GameObject _pnlInputName;
     [SerializeField] InputField _ifName;
 
-    [Header("Inventory")]
+    [Header("Items")]
+    public DataItem dataItem;
+    [Header("Features")]
+    public FeatureCursor cursor;
     public FeatureInventory inventory;
+
 
     void Awake() {
         if (!instance)
@@ -25,6 +29,12 @@ public class Manager : MonoBehaviour
     {
         player.enabled = false;
         _pnlInputName.SetActive(true);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.I))
+            inventory.OpenInventory();
     }
 
     public void OnClickBtnConfirmName(){

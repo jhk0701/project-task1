@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: 
-  txtName: {fileID: 6678419199368330484}
+  _txtName: {fileID: 6678419199368330484}
   _anim: {fileID: 1820464988858630444}
 --- !u!54 &8327776543048262344
 Rigidbody:

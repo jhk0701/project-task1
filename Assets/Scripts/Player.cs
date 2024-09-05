@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] string _name;
-    [SerializeField] Text txtName;
+    [SerializeField] Text _txtName;
     [SerializeField] Animator _anim;
 
     float _inputV;
@@ -33,6 +33,6 @@ public class Player : MonoBehaviour
 
     public void SetName(string name){
         _name = name;
-        txtName.text = _name;
+        _txtName.text = _name;
     }
 }

@@ -9,16 +9,15 @@ namespace DataDefinition {
     public class Item {
         public string name;
         public int id;
+        public int grade;
         public int price;
-    }
+        public Sprite sprite;
+    }    
 
     [Serializable] 
     public class Weapon : Item {
         public int power;
+        public GameObject pref;
     }
 
-    [Serializable] 
-    public class Armor : Item{
-        public int defense;
-    }
 }

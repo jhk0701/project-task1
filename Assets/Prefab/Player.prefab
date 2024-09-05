@@ -551,10 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: 
-  txtName: {fileID: 7279711600270159953}
+  _txtName: {fileID: 7279711600270159953}
   _anim: {fileID: 6511311012153106320}
-  _inputMouseX: 0
-  _inputMouseY: 0
 --- !u!95 &6511311012153106320
 Animator:
   serializedVersion: 5
