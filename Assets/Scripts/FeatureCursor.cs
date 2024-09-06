@@ -14,10 +14,10 @@ public class FeatureCursor : MonoBehaviour
     [SerializeField] Text _txtHoverInfo;
 
     [Header("Drag")]
-    bool _isDragging;
     [SerializeField] WeaponUI _weaponUI;
     [SerializeField] GameObject _goDrag;
     [SerializeField] Image _imgDrag;
+    bool _isDragging;
 
     // Update is called once per frame
     void Update()

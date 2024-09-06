@@ -27,6 +27,10 @@ public class WeaponUI :
         parent = p;
         curPosition = pos;
     }
+
+    public void Use(){
+        Debug.Log("Use");
+    }
     
     public void OnPointerEnter(PointerEventData eventData){
         string info = string.Format("Power : {0}\nPrice : {1}", data.power, data.price);

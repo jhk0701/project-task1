@@ -13,11 +13,14 @@ public class Manager : MonoBehaviour
     [SerializeField] GameObject _pnlInputName;
     [SerializeField] InputField _ifName;
 
-    [Header("Items")]
+    [Header("Data")]
+    public PlayerInfo playerInfo;
     public DataItem dataItem;
+
     [Header("Features")]
     public FeatureCursor cursor;
     public FeatureInventory inventory;
+    public FeatureTrade trade;
 
 
     void Awake() {

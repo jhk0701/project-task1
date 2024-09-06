@@ -17,14 +17,14 @@ MonoBehaviour:
   - name: Iron Sword
     id: 1
     grade: 1
-    price: 100
+    price: 450
     sprite: {fileID: 21300000, guid: 0ead03ee8195dd7469e49d8217cf09fb, type: 3}
-    power: 0
+    power: 10
     pref: {fileID: 7710300464282070235, guid: 028a6defc2c0dde4785cd8dd7095783e, type: 3}
   - name: Silver Sword
     id: 2
     grade: 1
-    price: 120
+    price: 500
     sprite: {fileID: 21300000, guid: 96acea77dbcbbc647964fff059b84649, type: 3}
-    power: 0
+    power: 12
     pref: {fileID: 7710300464282070235, guid: 4802e829b40b7d044a3fa50eb69419b2, type: 3}

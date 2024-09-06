@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour, IInteractable
 {
+    [SerializeField] string _name;
     [SerializeField] Animator _anim;
     int _idle;
     
@@ -29,7 +30,9 @@ public class Npc : MonoBehaviour, IInteractable
         _anim.SetTrigger("Change");
     }
 
-
+    public string GetName(){
+        return _name;
+    }
 
     public virtual void Interact(){
     }

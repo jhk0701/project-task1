@@ -20,4 +20,10 @@ namespace DataDefinition {
         public GameObject pref;
     }
 
+     [Serializable]
+    public struct Equipment{
+        public int weaponId;
+        // armor ...
+    }
+
 }
