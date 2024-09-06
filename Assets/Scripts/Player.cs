@@ -4,7 +4,7 @@ using DataDefinition;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class Player : Unit
 {
     [SerializeField] string _name;
     [SerializeField] Text _txtName;
@@ -74,4 +74,19 @@ public class Player : MonoBehaviour
         _weaponInst.transform.localEulerAngles = Vector3.zero;
     }
 
+    public override void Damage(float val, Unit subject)
+    {
+        Hitted();
+    }
+
+    public override void OnDead()
+    {
+        state = State.Dead;
+    }
+
+    void Hitted(){
+        int r = Random.Range(0, 5);
+        _anim.SetInteger("HitVar", r);
+        _anim.SetTrigger("Hit");
+    }
 }
