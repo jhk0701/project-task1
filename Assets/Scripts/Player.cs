@@ -24,19 +24,6 @@ public class Player : MonoBehaviour
         SetEquipment();
     }
 
-    public void SetEquipment(){
-        equip = Manager.instance.playerInfo.equipment;
-        
-        if(_weaponInst)
-            Destroy(_weaponInst);
-        
-        Weapon w = Manager.instance.dataItem.GetWeapon(equip.weaponId);
-        _weaponInst = Instantiate(w.pref, _tfWeapon);
-        _weaponInst.transform.localPosition = Vector3.zero;
-        _weaponInst.transform.localEulerAngles = Vector3.zero;
-    }
-
-
     void Update() {
         _inputV = Input.GetAxis("Vertical");
         _anim.SetFloat("Vertical", _inputV);
@@ -60,4 +47,19 @@ public class Player : MonoBehaviour
         _name = name;
         _txtName.text = _name;
     }
+
+    
+    public void SetEquipment(){
+        equip = Manager.instance.playerInfo.equipment;
+        
+        if(_weaponInst)
+            Destroy(_weaponInst);
+        
+        Weapon w = Manager.instance.dataItem.GetWeapon(equip.weaponId);
+        _weaponInst = Instantiate(w.pref, _tfWeapon);
+        _weaponInst.transform.localPosition = Vector3.zero;
+        _weaponInst.transform.localEulerAngles = Vector3.zero;
+    }
+
+    
 }
