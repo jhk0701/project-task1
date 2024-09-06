@@ -29,7 +29,9 @@ public class WeaponUI :
     }
 
     public void Use(){
-        Debug.Log("Use");
+        if(Manager.instance.trade.IsTrading()) return;
+
+        Manager.instance.player.ChangeEquipment(data.type, data.id);
     }
     
     public void OnPointerEnter(PointerEventData eventData){

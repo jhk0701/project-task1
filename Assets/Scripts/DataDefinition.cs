@@ -11,19 +11,17 @@ namespace DataDefinition {
         public int id;
         public int grade;
         public int price;
-        public Sprite sprite;
-    }    
-
+    } 
+    public enum TypeItem : int {
+        Weapon = 0,
+        Armor = 1
+    }
     [Serializable] 
     public class Weapon : Item {
         public int power;
+        public TypeItem type;
+        public Sprite sprite;
         public GameObject pref;
-    }
-
-     [Serializable]
-    public struct Equipment{
-        public int weaponId;
-        // armor ...
     }
 
 }

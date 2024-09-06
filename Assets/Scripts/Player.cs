@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] Text _txtName;
     [SerializeField] Animator _anim;
     [Header("weapon")]
-    public Equipment equip;
+    public Dictionary<int, int> equip;
     [SerializeField] Transform _tfWeapon;
     [SerializeField] GameObject _weaponInst;
     float _inputV;
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     public string GetName(){
         return _name;
     }
+
     public void SetName(string name){
         _name = name;
         _txtName.text = _name;
@@ -52,14 +53,25 @@ public class Player : MonoBehaviour
     public void SetEquipment(){
         equip = Manager.instance.playerInfo.equipment;
         
-        if(_weaponInst)
+        if(_weaponInst != null)
             Destroy(_weaponInst);
         
-        Weapon w = Manager.instance.dataItem.GetWeapon(equip.weaponId);
+        Weapon w = Manager.instance.dataItem.GetWeapon(equip[(int)TypeItem.Weapon]);
         _weaponInst = Instantiate(w.pref, _tfWeapon);
         _weaponInst.transform.localPosition = Vector3.zero;
         _weaponInst.transform.localEulerAngles = Vector3.zero;
     }
 
-    
+    public void ChangeEquipment(TypeItem type, int id){
+        equip[(int)type] = id;
+        
+        if(_weaponInst != null)
+            Destroy(_weaponInst);
+
+        Weapon w = Manager.instance.dataItem.GetWeapon(equip[(int)type]);
+        _weaponInst = Instantiate(w.pref, _tfWeapon);
+        _weaponInst.transform.localPosition = Vector3.zero;
+        _weaponInst.transform.localEulerAngles = Vector3.zero;
+    }
+
 }
