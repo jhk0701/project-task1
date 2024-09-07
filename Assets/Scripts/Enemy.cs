@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : Unit
 {
+    // not using now
     float pHp {
         get { return healthPoint;}
         set {
@@ -22,7 +23,7 @@ public class Enemy : Unit
     [SerializeField] Animator _anim;
     [SerializeField] NavMeshAgent _agent;
 
-    Unit _target;
+    [SerializeField] Unit _target;
     float _remainDistance;
     [Header("Attack")]
     [SerializeField] UnitHit _hit;
@@ -64,6 +65,7 @@ public class Enemy : Unit
     IEnumerator StateIdle(){
         ClearAnim();
         state = State.Idle;
+        _agent.SetDestination(transform.position);
 
         while(true){
             int r = Random.Range(0, 101);
@@ -100,7 +102,7 @@ public class Enemy : Unit
         if(state.Equals(State.Engage)) return;
         
         state = State.Engage;
-        Debug.Log("Start Battle.");
+        // Debug.Log("Start Battle.");
         ClearAnim();
         _target = newTarget;
         
@@ -146,16 +148,27 @@ public class Enemy : Unit
         SetState(StateIdle());
     }
 
-    void Attack(){
-        _hit.gameObject.SetActive(true);
+    protected override void Attack(){
         _anim.SetTrigger("Attack");
     }
 
-    public override void Damage(float val, Unit subject) {
-        pHp -= val;
+    public override void HitEvent(int id = 0)
+    {
+        _hit.gameObject.SetActive(true);
     }
 
-    public override void OnDead()
+    public override void Damage(float val, Unit subject) {
+        // pHp -= val;
+        Hitted();
+    }
+    
+    void Hitted(){
+        int r = Random.Range(0, 5);
+        _anim.SetInteger("HitVar", r);
+        _anim.SetTrigger("Hit");
+    }
+
+    protected override void OnDead()
     {
        state = State.Dead;
     }

@@ -14,5 +14,8 @@ public abstract class Unit : MonoBehaviour {
     public State state;
 
     public abstract void Damage(float val, Unit subject);
-    public abstract void OnDead();
+    protected abstract void OnDead();
+
+    protected abstract void Attack();
+    public abstract void HitEvent(int id = 0);
 }

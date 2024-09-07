@@ -36,6 +36,9 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
+        if(_pnlInputName.activeInHierarchy)
+            return;
+
         if (Input.GetKeyUp(KeyCode.I))
             inventory.OpenInventory();
     }
