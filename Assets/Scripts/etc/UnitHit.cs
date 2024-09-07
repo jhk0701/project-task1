@@ -16,6 +16,10 @@ public class UnitHit : MonoBehaviour
         _damage = d;
     }
 
+    public void SetDamage(float d){
+        _damage = d;
+    }
+
     void Disable(){
         gameObject.SetActive(false);
     }

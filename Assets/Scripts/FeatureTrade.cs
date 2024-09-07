@@ -48,6 +48,7 @@ public class FeatureTrade : MonoBehaviour
     public void OpenTrade(NpcMerchant merchant){
         if(_pnlTrade.activeInHierarchy) return;
         Manager.instance.inventory.CloseInventory();
+        // Manager.instance.isUsingUI = true;
 
         _pnlTrade.SetActive(true);
         _merchant = merchant;
@@ -65,11 +66,11 @@ public class FeatureTrade : MonoBehaviour
 
     public void CloseTrade(){
         _pnlTrade.SetActive(false);
+        // Manager.instance.isUsingUI = false;
 
         Manager.instance.playerInfo.ownedWeapons = _playerWeapons;
         _merchant.sellingItem = _merchantWeapons;
 
-        
         Manager.instance.playerInfo.gold = pPlayerGold;
         _merchant.gold = pMerchantGold;
 

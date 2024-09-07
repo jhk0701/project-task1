@@ -15,6 +15,7 @@ namespace DataDefinition {
     public enum TypeItem : int {
         Weapon = 0,
         Armor = 1
+        /// Çï¸ä 2, °ß°© 3...
     }
     [Serializable] 
     public class Weapon : Item {

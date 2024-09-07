@@ -25,6 +25,8 @@ public class FeatureInventory : MonoBehaviour
         if(_pnlInventory.activeInHierarchy || Manager.instance.trade.IsTrading())
             return;
 
+        // Manager.instance.isUsingUI = true;
+
         _ownedWeapons = Manager.instance.playerInfo.ownedWeapons;
         _txtOwnedGold.text = $"{Manager.instance.playerInfo.gold} G";
 
@@ -35,6 +37,8 @@ public class FeatureInventory : MonoBehaviour
     public void CloseInventory(){
         Manager.instance.playerInfo.ownedWeapons = _ownedWeapons;
         
+        // Manager.instance.isUsingUI = false;
+
         _pnlInventory.SetActive(false);
         Clear();
     }

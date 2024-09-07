@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour
     public DataItem dataItem;
 
     [Header("Features")]
+    public bool isUsingUI;
     public FeatureCursor cursor;
     public FeatureInventory inventory;
     public FeatureTrade trade;
@@ -36,6 +37,9 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
+        if(_pnlInputName.activeInHierarchy)
+            return;
+
         if (Input.GetKeyUp(KeyCode.I))
             inventory.OpenInventory();
     }
