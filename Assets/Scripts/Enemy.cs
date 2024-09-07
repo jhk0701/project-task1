@@ -176,7 +176,9 @@ public class Enemy : Unit
     void OnTriggerEnter(Collider other)
     {
         if(other.tag.Equals("Player")){
-            Engage(other.gameObject.GetComponent<Unit>());
+            Unit u = other.gameObject.GetComponent<Unit>();
+            if(u != null)
+                Engage(u);
         }
     }
     

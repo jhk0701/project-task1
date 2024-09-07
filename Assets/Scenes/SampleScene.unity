@@ -5096,6 +5096,7 @@ MonoBehaviour:
   _ifName: {fileID: 2012689119}
   playerInfo: {fileID: 1199245234}
   dataItem: {fileID: 11400000, guid: db687952439e0fb499bbe05898024d33, type: 2}
+  isUsingUI: 0
   cursor: {fileID: 1199245233}
   inventory: {fileID: 1199245232}
   trade: {fileID: 1199245235}
@@ -11493,6 +11494,10 @@ PrefabInstance:
     - target: {fileID: 5977570074593583074, guid: eee0193ee573c5444a6515d9aeb99552, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0027038276
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018654217708459547, guid: eee0193ee573c5444a6515d9aeb99552, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6050188162678145186, guid: eee0193ee573c5444a6515d9aeb99552, type: 3}
       propertyPath: m_LocalPosition.y

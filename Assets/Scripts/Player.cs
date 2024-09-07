@@ -36,9 +36,10 @@ public class Player : Unit
     }
 
     void Update() {
-        if(_name.Equals("")) return;
+        if(_name.Equals("") || Manager.instance.trade.IsTrading())
+            return;
 
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetAxis("Fire1") != 0f)
             Attack();
 
         _inputV = Input.GetAxis("Vertical");
@@ -127,6 +128,7 @@ public class Player : Unit
 
     protected override void Attack()
     {
+        
         _anim.SetTrigger("Attack");
     }
 

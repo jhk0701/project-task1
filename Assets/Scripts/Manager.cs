@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour
     public DataItem dataItem;
 
     [Header("Features")]
+    public bool isUsingUI;
     public FeatureCursor cursor;
     public FeatureInventory inventory;
     public FeatureTrade trade;

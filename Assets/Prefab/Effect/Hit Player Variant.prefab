@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4661196736130311096, guid: a18693ee51ee50943a21ffae6c4013f6, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653787532391984056, guid: a18693ee51ee50943a21ffae6c4013f6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 867989481e52acd4e841de966c2ed606, type: 2}
     - target: {fileID: 5820546645410347895, guid: a18693ee51ee50943a21ffae6c4013f6, type: 3}
       propertyPath: m_Name
       value: Hit Player Variant
